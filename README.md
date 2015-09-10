@@ -8,9 +8,12 @@ comile it with,
 
 ```g++ -std=c++11 scriptRunner.cpp -o scriptRunner```
 
-then,
+then if your program is myProgram and run it like,
 
-```./scriptRunner <programName> <arg1> <arg2> ... <argN> <initSampleSize>```
+```(./myProgram <arg1> <arg2> ... <argN>)```
+then the script to run it is,
+
+```./scriptRunner myProgram <arg1> <arg2> ... <argN> <initSampleSize>```
 
 Eg:
 
