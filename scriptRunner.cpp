@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <math.h>
 
-long exec(std::string cmdStr) {
+double exec(std::string cmdStr) {
     char* cmd = &cmdStr[0];
     FILE* pipe = popen(cmd, "r");
     if (!pipe) return -1l;
