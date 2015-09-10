@@ -6,7 +6,7 @@
 
 comile it with,
 
-```g++ scriptRunner.cpp -o scriptRunner```
+```g++ -std=c++11 scriptRunner.cpp -o scriptRunner```
 
 then,
 
