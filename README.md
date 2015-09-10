@@ -8,7 +8,7 @@ comile it with,
 
 ```g++ -std=c++11 scriptRunner.cpp -o scriptRunner```
 
-then if your program is myProgram and run it like,
+then if your program is ```myProgram``` and run it like,
 
 ```(./myProgram <arg1> <arg2> ... <argN>)```
 then the script to run it is,
