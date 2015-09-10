@@ -14,10 +14,10 @@ long exec(std::string cmdStr) {
     		result += buffer;
     }
     pclose(pipe);
-    return std::stol(result);
+    return std::stod(result);
 }
 
-double standard_deviation(long data[], int n, bool foundSamleSize)
+double standard_deviation(double data[], int n, bool foundSamleSize)
 {
     double mean=0.0, sum_deviation=0.0;
 
@@ -46,25 +46,29 @@ double standard_deviation(long data[], int n, bool foundSamleSize)
 
 int main(int argc, const char* argv[]) {
 
-    if(argc != 4) {
-        std::cout<<"Error. Argument order should be,\n<programName> <matrixSize> <initSampleSize>"<<std::endl;
+    if(argc < 3) {
+        std::cout<<"Error. Argument order should be,\n<programName> <arg1> <arg2> ... <argN> <initSampleSize>"<<std::endl;
         exit(-1);
     }
 
     std::string programName = argv[1];
-    int matrixSize = atoi(argv[2]), initSampleSize = atoi(argv[3]);
+    int initSampleSize = atoi(argv[argc - 1]);
 
-    std::cout<<"Running for matrixSize: "<<matrixSize<<"  and initial sample size: "<<initSampleSize<<std::endl;
+    std::string cmd = "./" + programName;
+    for (int i = 2; i < argc - 1; ++i) {
+        cmd += " " + std::string(argv[i]);
+    }
+    std::cout<<"Running "<<cmd<<" with initial sample size of "<<initSampleSize<<std::endl;
 
-    long data[initSampleSize];
-    std::string cmd = "./" + programName + " " + std::to_string(matrixSize);
+    double data[initSampleSize];
+
     for (int i = 0; i < initSampleSize; ++i) {
         data[i] = exec(cmd);
     }
 
     int calulatedSampleSize = standard_deviation(data, initSampleSize, false) + 1;
 
-    long samplingData[calulatedSampleSize];
+    double samplingData[calulatedSampleSize];
     for (int i = 0; i < calulatedSampleSize; ++i) {
         samplingData[i] = exec(cmd);
     }
