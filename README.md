@@ -10,7 +10,7 @@ comile it with,
 
 then,
 
-```./scriptRunner <programName> <matrixSize> <initSampleSize>```
+```./scriptRunner <programName> <arg1> <arg2> ... <argN> <initSampleSize>```
 
 Eg:
 
