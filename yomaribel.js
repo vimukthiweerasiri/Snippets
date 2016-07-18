@@ -1,4 +1,3 @@
-// yo! maribel
 Notification.requestPermission()
 var last_showed = 0;
 setInterval(function() {
